@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Race to 100</title>
+    <meta
+      name="description"
+      content="Race to 100 is a fast dice math puzzle: roll the dice, use every number, and race your brain from 10 to 100."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Race to 100">
+    <meta
+      property="og:description"
+      content="Roll. Combine. Race to 100. A fast math-puzzle dice game for iPhone."
+    >
+    <meta property="og:image" content="assets/screens/home.png">
+    <meta property="og:url" content="https://meloform.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Race to 100">
+    <meta
+      name="twitter:description"
+      content="Roll. Combine. Race to 100. A fast math-puzzle dice game for iPhone."
+    >
+    <meta name="twitter:image" content="assets/screens/home.png">
+    <link rel="icon" href="assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Unbounded:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/css/site.css">
+    <script>
+      // Owner action before beta deploy: replace TESTFLIGHT_URL with the public TestFlight link.
+      // At launch, replace this CTA with the official App Store badge/link.
+      const TESTFLIGHT_URL = 'TESTFLIGHT_URL';
+      window.RaceTo100Site = { TESTFLIGHT_URL };
+    </script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="brand-link" href="#top" aria-label="Race to 100 home">
+        <span class="brand-mark" aria-hidden="true">100</span>
+        <span>Race to 100</span>
+      </a>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#modes">Modes</a>
+        <a href="#screens">Screens</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-backdrop">
+          <div class="phone-frame hero-phone">
+            <img
+              class="screen-image"
+              src="assets/screens/home.png"
+              alt="Race to 100 home screen showing the Daily challenge and game modes"
+            >
+          </div>
+        </div>
+        <div class="hero-content">
+          <p class="eyebrow">Fast dice math for quick brains</p>
+          <h1 id="hero-title">
+            <span>Roll.</span>
+            <span>Combine.</span>
+            <span>Race to 100.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Roll the dice. Use every number. Race your brain to 100.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" id="beta-link" href="#">
+              Join the beta
+            </a>
+            <button class="button button-secondary" id="share-page" type="button">
+              Share this page
+            </button>
+          </div>
+          <p class="hero-note" id="share-status" role="status" aria-live="polite">
+            Built for iPhone. Beta invites opening soon.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="how-it-works" aria-labelledby="how-title">
+        <div class="section-heading">
+          <p class="eyebrow">The loop</p>
+          <h2 id="how-title">Use every die. Hit every target.</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="info-card step-card">
+            <span class="step-number">1</span>
+            <h3>Roll the dice</h3>
+            <p>
+              Every normal roll is checked by the game so it can be solved.
+              You start at target 10.
+            </p>
+          </article>
+          <article class="info-card step-card">
+            <span class="step-number">2</span>
+            <h3>Combine numbers</h3>
+            <p>
+              Use +, −, ×, and ÷. Division must be exact, and every original
+              die must be used once.
+            </p>
+          </article>
+          <article class="info-card step-card">
+            <span class="step-number">3</span>
+            <h3>Race to 100</h3>
+            <p>
+              Solve 10, 20, 30, and onward until the final target: 100.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="modes" aria-labelledby="modes-title">
+        <div class="section-heading">
+          <p class="eyebrow">Modes</p>
+          <h2 id="modes-title">Play sharp, daily, fast, steady, or calm.</h2>
+        </div>
+        <div class="mode-grid">
+          <article class="info-card mode-card">
+            <h3>Solo</h3>
+            <p>Race from 10 to 100 with a 60-second target timer.</p>
+          </article>
+          <article class="info-card mode-card">
+            <h3>Daily</h3>
+            <p>
+              One scored attempt per day, shared puzzle, streaks, and a
+              leaderboard.
+            </p>
+          </article>
+          <article class="info-card mode-card">
+            <h3>Sprint</h3>
+            <p>Push as far as you can in 60 seconds.</p>
+          </article>
+          <article class="info-card mode-card">
+            <h3>Climb</h3>
+            <p>Clear levels, earn stars, and work through the map.</p>
+          </article>
+          <article class="info-card mode-card">
+            <h3>Relax</h3>
+            <p>No timer, no pressure, just practice and better number sense.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section screen-section" id="screens" aria-labelledby="screens-title">
+        <div class="section-heading">
+          <p class="eyebrow">Screens</p>
+          <h2 id="screens-title">A compact game made for phone screens.</h2>
+        </div>
+        <div class="screens-grid">
+          <figure class="screen-card">
+            <div class="phone-frame">
+              <img
+                class="screen-image"
+                src="assets/screens/gameplay.png"
+                alt="Race to 100 gameplay screen with dice, operators, and the current target"
+                loading="lazy"
+              >
+            </div>
+            <figcaption>Gameplay</figcaption>
+          </figure>
+          <figure class="screen-card">
+            <div class="phone-frame">
+              <img
+                class="screen-image"
+                src="assets/screens/daily-leaderboard.png"
+                alt="Race to 100 Daily leaderboard screen with ranked results"
+                loading="lazy"
+              >
+            </div>
+            <figcaption>Daily leaderboard</figcaption>
+          </figure>
+          <figure class="screen-card">
+            <div class="phone-frame">
+              <img
+                class="screen-image"
+                src="assets/screens/stats.png"
+                alt="Race to 100 Stats screen with mode progress and lifetime totals"
+                loading="lazy"
+              >
+            </div>
+            <figcaption>Stats</figcaption>
+          </figure>
+          <figure class="screen-card optional-screen">
+            <div class="phone-frame">
+              <div class="screen-placeholder">
+                <span class="placeholder-kicker">Optional</span>
+                <strong>assets/screens/share-card.png</strong>
+                <span>1200 x 630</span>
+              </div>
+            </div>
+            <figcaption>Share preview</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Race to 100</strong>
+        <p>Made by Meloform.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="mailto:meloform.studio@gmail.com">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <p>&copy; Meloform</p>
+    </footer>
+
+    <script>
+      (function () {
+        const config = window.RaceTo100Site || {};
+        const betaUrl = config.TESTFLIGHT_URL;
+        const betaLink = document.getElementById('beta-link');
+        if (betaLink) betaLink.href = betaUrl;
+
+        const shareButton = document.getElementById('share-page');
+        const status = document.getElementById('share-status');
+        const shareData = {
+          title: 'Race to 100',
+          text: 'Roll. Combine. Race to 100.',
+          url: window.location.href,
+        };
+        if (!shareButton) return;
+        shareButton.addEventListener('click', async function () {
+          try {
+            if (navigator.share) {
+              await navigator.share(shareData);
+              if (status) status.textContent = 'Shared.';
+              return;
+            }
+            await navigator.clipboard.writeText(window.location.href);
+            if (status) status.textContent = 'Link copied.';
+          } catch (error) {
+            if (status) status.textContent = 'Share cancelled.';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
