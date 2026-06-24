@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daily Duel - Race to 100</title>
+    <meta
+      name="description"
+      content="A friend challenged you to beat their Race to 100 Daily time."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Daily Duel - Race to 100">
+    <meta
+      property="og:description"
+      content="Beat your friend's Race to 100 Daily time."
+    >
+    <meta property="og:url" content="https://meloforms.github.io/d/">
+    <meta property="og:image" content="../assets/screens/home.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daily Duel - Race to 100">
+    <meta
+      name="twitter:description"
+      content="Beat your friend's Race to 100 Daily time."
+    >
+    <meta name="twitter:image" content="../assets/screens/home.png">
+    <link rel="icon" href="../assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Unbounded:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../assets/css/site.css">
+  </head>
+  <body class="duel-page">
+    <main class="duel-shell" aria-labelledby="duel-title">
+      <a class="brand-link duel-brand" href="../" aria-label="Race to 100 home">
+        <span class="brand-mark" aria-hidden="true">100</span>
+        <span>Race to 100</span>
+      </a>
+
+      <section class="duel-card">
+        <p class="eyebrow">Daily duel</p>
+        <div class="duel-proof" aria-hidden="true">
+          <span class="duel-flag" id="duel-flag">🏴‍☠️</span>
+          <span class="duel-time" id="duel-time">0:42</span>
+        </div>
+        <h1 id="duel-title">
+          <span>Beat it in</span>
+          <span>Race to 100.</span>
+        </h1>
+        <p class="duel-copy">
+          <strong id="duel-name">A friend</strong>
+          <span> did today's Daily in </span>
+          <strong id="duel-inline-time">0:42</strong><span>. Roll the dice, use every number, and race faster.</span>
+        </p>
+        <div class="duel-actions">
+          <a class="button button-primary" id="store-link" href="#">
+            Get Race to 100
+          </a>
+          <a class="button button-secondary" href="../">Learn more</a>
+        </div>
+        <p class="hero-note" id="duel-status" role="status" aria-live="polite">
+          The link opens the store listing for Race to 100.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const IOS_STORE_URL = 'https://apps.apple.com/app/id6775581657';
+        const ANDROID_STORE_URL = '';
+        const TRACK_ENDPOINT =
+          'https://europe-west1-race-to-100-dev.cloudfunctions.net/trackDuelStoreClick';
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('c') || '';
+        const name = (params.get('n') || 'A friend').slice(0, 40);
+        const countryCode = (params.get('f') || '').toUpperCase();
+        const elapsedMs = Number.parseInt(params.get('t') || '', 10);
+
+        const flag = countryFlag(countryCode);
+        const time = Number.isFinite(elapsedMs) && elapsedMs > 0
+          ? formatTime(elapsedMs)
+          : 'a fast time';
+
+        setText('duel-flag', flag);
+        setText('duel-time', time);
+        setText('duel-name', name || 'A friend');
+        setText('duel-inline-time', time);
+
+        const platform = detectPlatform();
+        const destination = destinationForPlatform(platform);
+        const storeLink = document.getElementById('store-link');
+        const status = document.getElementById('duel-status');
+        if (!storeLink) return;
+        if (!destination) {
+          storeLink.removeAttribute('href');
+          storeLink.setAttribute('aria-disabled', 'true');
+          storeLink.classList.add('button-disabled');
+          if (status) {
+            status.textContent =
+              'Android store link coming after the Play listing is live.';
+          }
+          return;
+        }
+        storeLink.href = destination;
+        storeLink.addEventListener('click', function () {
+          if (token) {
+            sendStoreClick(token, platform);
+          }
+        });
+
+        function setText(id, value) {
+          const element = document.getElementById(id);
+          if (element) element.textContent = value;
+        }
+
+        function detectPlatform() {
+          const ua = navigator.userAgent || '';
+          if (/android/i.test(ua)) return 'android';
+          if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';
+          return 'other';
+        }
+
+        function destinationForPlatform(value) {
+          if (value === 'android') return ANDROID_STORE_URL;
+          if (value === 'ios') return IOS_STORE_URL;
+          return IOS_STORE_URL || ANDROID_STORE_URL;
+        }
+
+        function countryFlag(code) {
+          if (!/^[A-Z]{2}$/.test(code)) return '🏴‍☠️';
+          const base = 127397;
+          return String.fromCodePoint(
+            code.charCodeAt(0) + base,
+            code.charCodeAt(1) + base,
+          );
+        }
+
+        function formatTime(milliseconds) {
+          const totalSeconds = Math.max(0, Math.round(milliseconds / 1000));
+          const minutes = Math.floor(totalSeconds / 60);
+          const seconds = totalSeconds % 60;
+          if (minutes === 0) return `${seconds}s`;
+          return `${minutes}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function sendStoreClick(clickToken, clickPlatform) {
+          const payload = JSON.stringify({
+            token: clickToken,
+            platform: clickPlatform,
+          });
+          if (navigator.sendBeacon) {
+            const blob = new Blob([payload], { type: 'application/json' });
+            if (navigator.sendBeacon(TRACK_ENDPOINT, blob)) return;
+          }
+          fetch(TRACK_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: payload,
+            keepalive: true,
+            mode: 'cors',
+          }).catch(function () {
+            // Store-click tracking is best-effort and must not block navigation.
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
