@@ -29,10 +29,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="assets/css/site.css">
     <script>
-      // Owner action before beta deploy: replace TESTFLIGHT_URL with the public TestFlight link.
-      // At launch, replace this CTA with the official App Store badge/link.
-      const TESTFLIGHT_URL = 'https://testflight.apple.com/join/gy55yYDu';
-      window.RaceTo100Site = { TESTFLIGHT_URL };
+      const APP_STORE_URL = 'https://apps.apple.com/be/app/race-to-100-dice-puzzle/id6775581657';
+      window.RaceTo100Site = { APP_STORE_URL };
     </script>
   </head>
   <body>
@@ -70,15 +68,19 @@
             Roll the dice. Use every number. Race your brain to 100.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" id="beta-link" href="#">
-              Join the beta
+            <a
+              class="button button-primary"
+              id="app-store-link"
+              href="https://apps.apple.com/be/app/race-to-100-dice-puzzle/id6775581657"
+            >
+              Download on the App Store
             </a>
             <button class="button button-secondary" id="share-page" type="button">
               Share this page
             </button>
           </div>
           <p class="hero-note" id="share-status" role="status" aria-live="polite">
-            Built for iPhone. The beta is open on TestFlight.
+            Available now on the App Store for iPhone and iPad.
           </p>
         </div>
       </section>
@@ -208,9 +210,11 @@
       (function () {
         const config = window.RaceTo100Site || {};
         const canonicalUrl = 'https://raceto100.app/';
-        const betaUrl = config.TESTFLIGHT_URL;
-        const betaLink = document.getElementById('beta-link');
-        if (betaLink) betaLink.href = betaUrl;
+        const appStoreUrl = config.APP_STORE_URL;
+        const appStoreLink = document.getElementById('app-store-link');
+        if (appStoreLink && typeof appStoreUrl === 'string' && appStoreUrl) {
+          appStoreLink.href = appStoreUrl;
+        }
 
         const shareButton = document.getElementById('share-page');
         const status = document.getElementById('share-status');

@@ -37,9 +37,10 @@ Verified on August 6, 2026:
   complete `www` Daily Duel URL reaches the identical apex path and query.
 - `race-to-100.pages.dev` and `meloforms.github.io` remain operational as
   fallback and legacy hosts.
-
-Firebase Remote Config and store-listing URL changes remain separate follow-up
-steps after the canonical domain has had a short stability window.
+- Firebase Remote Config template version 14 sets `share_link_url` to
+  `https://raceto100.app/`; the other seven parameters remain unchanged.
+The public App Store listing is live. Future app binaries and store-metadata
+changes remain separate release steps.
 
 ## Public routes
 
@@ -169,18 +170,20 @@ automatically update that separate repository.
 
 The tracked `.nojekyll` file exists only for this legacy GitHub Pages mirror.
 
-## Homepage CTA and sharing
+## Homepage App Store CTA and sharing
 
-The homepage contains the owner-provided public TestFlight URL:
+The homepage exposes the live Belgian App Store listing through the shared site
+configuration:
 
 ```js
-const TESTFLIGHT_URL = 'https://testflight.apple.com/join/gy55yYDu';
+const APP_STORE_URL = 'https://apps.apple.com/be/app/race-to-100-dice-puzzle/id6775581657';
+window.RaceTo100Site = { APP_STORE_URL };
 ```
 
-At public App Store launch, replace the beta CTA only with the real App Store
-product URL. The homepage share button deliberately shares
-`https://raceto100.app/` rather than the current browser URL, preventing preview
-or `www` hostnames from leaking into shared links.
+The primary CTA reads `Download on the App Store`, and the availability copy
+states that the app is available for iPhone and iPad. The homepage share button
+deliberately shares `https://raceto100.app/` rather than the current browser
+URL, preventing preview or `www` hostnames from leaking into shared links.
 
 ## Daily Duel links
 
@@ -234,12 +237,16 @@ The website deployment alone does not complete the migration:
 
 - Firebase `trackDuelStoreClick` must be publicly invokable and return matching
   CORS headers for both canonical and legacy origins.
-- The next app build must use the canonical website/legal URLs and
-  `https://raceto100.app/d/` for Daily Duel links.
-- Firebase Remote Config `share_link_url` changes to
-  `https://raceto100.app/` only after the custom domain passes validation.
-- Store listing URLs change only after the canonical routes and HTTPS are
-  stable.
+- App source uses the canonical website/legal URLs and
+  `https://raceto100.app/d/` for Daily Duel links. Remote Config version 14
+  updates generated share links without requiring an urgent binary solely for
+  the domain cutover.
+- Firebase Remote Config `share_link_url` is `https://raceto100.app/` as of
+  template version 14. Existing versions that cached the previous value remain
+  supported by the legacy mirror.
+- The public iOS App Store listing is
+  `https://apps.apple.com/be/app/race-to-100-dice-puzzle/id6775581657`;
+  future store-metadata changes remain release-gated.
 
 ## Validation
 
