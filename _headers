@@ -1,0 +1,15 @@
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; connect-src 'self' https://europe-west1-race-to-100-dev.cloudfunctions.net; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; manifest-src 'self'; media-src 'none'; object-src 'none'; script-src 'self' 'sha256-9Am9r3nNeEm71gQcwHqKRBRjjFgeA7s7XpdzVCZwYEo=' 'sha256-Ex4MWAXLx36UVZdb7cbrFgbiLEGis8ZP5HAkNMkoDHY=' 'sha256-XAhsFjjxuhgMpk8eGBf/LXgOLU2HuCELkrbXHHBsEtI='; script-src-attr 'none'; style-src 'self' 'sha256-1z4EO2etfWYCPKYlz9Jtqielzb0KM613Jzr+hBLnB2Y=' 'sha256-NjG5LNDGYLSvnJuU4jPaANRjEDqVHMRyn7Io9fapKKQ=' 'sha256-m9pg8hqyFu5AFhJ51919gVQ+ETAJE6AkgI85ZaM+1Bk=' 'sha256-mxQVY63fqycXilUfldRZegwbZf6zf6ByegBZjAyb5+Y='; style-src-attr 'none'; worker-src 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+
+/d/*
+  Referrer-Policy: no-referrer
+
+/assets/fonts/*
+  Cache-Control: public, max-age=604800
+
+/assets/screens/generated/*
+  Cache-Control: public, max-age=604800
