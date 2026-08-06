@@ -1,3 +1,19 @@
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/Inter.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Unbounded;
+  src: url("../fonts/Unbounded.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
 :root {
   --race-background: #f9f6ef;
   --race-surface: #ffffff;
@@ -333,39 +349,6 @@ p {
   object-fit: cover;
 }
 
-.screen-placeholder {
-  display: grid;
-  place-items: center;
-  height: 100%;
-  padding: 24px;
-  border-radius: 26px;
-  background:
-    linear-gradient(var(--race-background), var(--race-background)) padding-box;
-  color: var(--race-text);
-  text-align: center;
-}
-
-.screen-placeholder strong {
-  display: block;
-  margin: 10px 0;
-  overflow-wrap: anywhere;
-  font-family: Unbounded, Inter, sans-serif;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.screen-placeholder span {
-  color: var(--race-text-muted);
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.placeholder-kicker {
-  color: var(--race-primary) !important;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .site-footer {
   display: grid;
   gap: 16px;
@@ -597,7 +580,7 @@ p {
   }
 
   .screens-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

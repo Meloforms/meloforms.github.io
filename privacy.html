@@ -8,30 +8,25 @@
       name="description"
       content="Privacy Policy for Race to 100 by Meloform."
     >
+    <link rel="canonical" href="https://raceto100.app/privacy">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Privacy Policy - Race to 100">
     <meta
       property="og:description"
       content="How Race to 100 handles app data, analytics, ads, purchases, and deletion requests."
     >
-    <meta property="og:image" content="assets/screens/home.png">
-    <meta property="og:url" content="https://meloforms.github.io/privacy.html">
+    <meta property="og:image" content="https://raceto100.app/assets/screens/home.png">
+    <meta property="og:url" content="https://raceto100.app/privacy">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Privacy Policy - Race to 100">
     <meta
       name="twitter:description"
       content="How Race to 100 handles app data, analytics, ads, purchases, and deletion requests."
     >
-    <meta name="twitter:image" content="assets/screens/home.png">
+    <meta name="twitter:image" content="https://raceto100.app/assets/screens/home.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Unbounded:wght@700;800&amp;display=swap"
-      rel="stylesheet"
-    >
     <link rel="stylesheet" href="assets/css/site.css">
   </head>
   <body>
@@ -51,7 +46,9 @@
       <article class="legal-document">
         <p class="eyebrow">Meloform</p>
         <h1>Privacy Policy</h1>
-        <p class="legal-updated">Effective date: June 12, 2026</p>
+        <p class="legal-updated">
+          Effective date: June 12, 2026 · Last updated: August 6, 2026
+        </p>
 
         <section class="legal-section" aria-labelledby="privacy-summary">
           <h2 id="privacy-summary">Short version</h2>
@@ -115,6 +112,21 @@
               receipts, purchase tokens, transaction IDs, email addresses,
               Support IDs, or raw Firebase user IDs.
             </li>
+            <li>
+              <strong>Crash diagnostics:</strong> Firebase Crashlytics may
+              receive crash and performance information needed to diagnose app
+              stability. It is used for app functionality and diagnostics, not
+              advertising, and our diagnostic reports avoid gameplay payloads,
+              display names, Support IDs, purchase data, and raw user IDs.
+            </li>
+            <li>
+              <strong>Support correspondence:</strong> if you contact us, we
+              receive your email address, message, and any device, app version,
+              build number, or Support ID you choose to include. We use this
+              information only to investigate and answer the request and keep it
+              only as long as reasonably needed for support, security, or legal
+              records.
+            </li>
           </ul>
         </section>
 
@@ -142,6 +154,15 @@
             designed to be spoiler-safe and should not include dice, operations,
             raw IDs, or support identifiers.
           </p>
+          <p>
+            A Daily Duel link may include the display name and country flag you
+            chose, the Daily date, and your completion time. Store-link clicks
+            from these pages are stored only as bounded totals by platform. Our
+            application code does not add visitor IP addresses, browser details,
+            or raw request data to those counter records or application logs.
+            Google Cloud delivers the click endpoint and may process standard
+            technical request data to provide, secure, and monitor that service.
+          </p>
         </section>
 
         <section class="legal-section" aria-labelledby="privacy-retention">
@@ -163,26 +184,29 @@
             <a href="mailto:meloform.studio@gmail.com">meloform.studio@gmail.com</a>.
           </p>
           <p>
-            You can delete your data directly in the app: open
-            <strong>Settings</strong> and tap <strong>Delete my data</strong>.
-            This wipes on-device data and removes or anonymizes your online
-            Daily data, and the app continues with a fresh anonymous identity.
-            You can also request deletion by email. Full instructions are on the
-            <a href="delete-data.html">Delete your data</a> page.
+            The backend includes a deletion path for app data. Deleting backend
+            purchase entitlement data may require you to use Restore Purchase to
+            re-apply Remove Ads later, because Apple keeps the store purchase
+            history.
           </p>
           <p>
-            Deleting backend purchase entitlement data may require you to use
-            Restore Purchase to re-apply Remove Ads later, because the app store
-            keeps the store purchase history.
+            See the <a href="delete-data.html">Delete your data</a> page for
+            in-app steps and the email-request option.
           </p>
         </section>
 
         <section class="legal-section" aria-labelledby="privacy-site">
           <h2 id="privacy-site">This website</h2>
           <p>
-            This website is hosted on GitHub Pages. GitHub may process standard
-            technical access data such as IP address, browser information, and
-            request logs to provide and secure the hosting service.
+            The primary website is hosted and delivered by Cloudflare Pages.
+            A legacy copy remains available through GitHub Pages so links from
+            older app versions continue to work. Cloudflare and GitHub may
+            process standard technical access data such as IP address, browser
+            information, and request logs to provide and secure their hosting
+            services. Google Cloud provides the Daily Duel click endpoint and
+            may process similar technical request data. Website fonts are served
+            from the same website rather than requested from a separate font
+            provider.
           </p>
         </section>
 
@@ -215,9 +239,10 @@
         <p>Made by Meloform.</p>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="mailto:meloform.studio@gmail.com">Support</a>
+        <a href="support.html">Support</a>
         <a href="privacy.html" aria-current="page">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a href="delete-data.html">Delete data</a>
       </nav>
       <p>&copy; Meloform</p>
     </footer>

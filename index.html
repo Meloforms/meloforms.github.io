@@ -8,30 +8,25 @@
       name="description"
       content="Race to 100 is a fast dice math puzzle: roll the dice, use every number, and race your brain from 10 to 100."
     >
+    <link rel="canonical" href="https://raceto100.app/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Race to 100">
     <meta
       property="og:description"
       content="Roll. Combine. Race to 100. A fast math-puzzle dice game for iPhone."
     >
-    <meta property="og:image" content="assets/screens/home.png">
-    <meta property="og:url" content="https://meloforms.github.io/">
+    <meta property="og:image" content="https://raceto100.app/assets/screens/home.png">
+    <meta property="og:url" content="https://raceto100.app/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Race to 100">
     <meta
       name="twitter:description"
       content="Roll. Combine. Race to 100. A fast math-puzzle dice game for iPhone."
     >
-    <meta name="twitter:image" content="assets/screens/home.png">
+    <meta name="twitter:image" content="https://raceto100.app/assets/screens/home.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Unbounded:wght@700;800&amp;display=swap"
-      rel="stylesheet"
-    >
     <link rel="stylesheet" href="assets/css/site.css">
     <script>
       // Owner action before beta deploy: replace TESTFLIGHT_URL with the public TestFlight link.
@@ -191,16 +186,6 @@
             </div>
             <figcaption>Stats</figcaption>
           </figure>
-          <figure class="screen-card optional-screen">
-            <div class="phone-frame">
-              <div class="screen-placeholder">
-                <span class="placeholder-kicker">Optional</span>
-                <strong>assets/screens/share-card.png</strong>
-                <span>1200 x 630</span>
-              </div>
-            </div>
-            <figcaption>Share preview</figcaption>
-          </figure>
         </div>
       </section>
     </main>
@@ -211,9 +196,10 @@
         <p>Made by Meloform.</p>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="mailto:meloform.studio@gmail.com">Support</a>
+        <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a href="delete-data.html">Delete data</a>
       </nav>
       <p>&copy; Meloform</p>
     </footer>
@@ -221,6 +207,7 @@
     <script>
       (function () {
         const config = window.RaceTo100Site || {};
+        const canonicalUrl = 'https://raceto100.app/';
         const betaUrl = config.TESTFLIGHT_URL;
         const betaLink = document.getElementById('beta-link');
         if (betaLink) betaLink.href = betaUrl;
@@ -230,7 +217,7 @@
         const shareData = {
           title: 'Race to 100',
           text: 'Roll. Combine. Race to 100.',
-          url: window.location.href,
+          url: canonicalUrl,
         };
         if (!shareButton) return;
         shareButton.addEventListener('click', async function () {
@@ -240,7 +227,7 @@
               if (status) status.textContent = 'Shared.';
               return;
             }
-            await navigator.clipboard.writeText(window.location.href);
+            await navigator.clipboard.writeText(canonicalUrl);
             if (status) status.textContent = 'Link copied.';
           } catch (error) {
             if (status) status.textContent = 'Share cancelled.';
